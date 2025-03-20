@@ -1,32 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Models;
 
-/**
- *
- * @author antho
- */
 public class Usuario {
 
     private String nombre;
     private String rut;
-    private String Cargo;
+    private String cargo;
     private int horasSemanales;
     private double sueldoBruto;
-    private String sistemaPrevencional;
+    private String sistemaPrevisional;
 
     public Usuario() {
     }
 
-    public Usuario(String nombre, String rut, String Cargo, int horasSemanales, double sueldoBruto, String sistemaPrevencional) {
+    public Usuario(String nombre, String rut, String cargo, int horasSemanales, double sueldoBruto, String sistemaPrevisional) {
         this.nombre = nombre;
         this.rut = rut;
-        this.Cargo = Cargo;
+        this.cargo = cargo;
         this.horasSemanales = horasSemanales;
         this.sueldoBruto = sueldoBruto;
-        this.sistemaPrevencional = sistemaPrevencional;
+        this.sistemaPrevisional = sistemaPrevisional;
     }
 
     public String getNombre() {
@@ -46,11 +38,11 @@ public class Usuario {
     }
 
     public String getCargo() {
-        return Cargo;
+        return cargo;
     }
 
-    public void setCargo(String Cargo) {
-        this.Cargo = Cargo;
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 
     public int getHorasSemanales() {
@@ -69,17 +61,34 @@ public class Usuario {
         this.sueldoBruto = sueldoBruto;
     }
 
-    public String getSistemaPrevencional() {
-        return sistemaPrevencional;
+    public String getSistemaPrevisional() {
+        return sistemaPrevisional;
     }
 
-    public void setSistemaPrevencional(String sistemaPrevencional) {
-        this.sistemaPrevencional = sistemaPrevencional;
+    public void setSistemaPrevisional(String sistemaPrevisional) {
+        this.sistemaPrevisional = sistemaPrevisional;
     }
 
     @Override
     public String toString() {
-        return "Usuario{" + "nombre=" + nombre + ", rut=" + rut + ", Cargo=" + Cargo + ", horasSemanales=" + horasSemanales + ", sueldoBruto=" + sueldoBruto + ", sistemaPrevencional=" + sistemaPrevencional + '}';
+        return "Usuario{"
+                + "nombre='" + nombre + '\''
+                + ", rut='" + rut + '\''
+                + ", cargo='" + cargo + '\''
+                + ", horasSemanales=" + horasSemanales
+                + ", sueldoBruto=" + sueldoBruto
+                + ", sistemaPrevisional='" + sistemaPrevisional + '\''
+                + '}';
     }
 
+    // Método para calcular el sueldo líquido
+    public double calcularSueldoLiquido() {
+        double afp = sueldoBruto * 0.10;                                    // Descuento AFP (10%)
+        double salud = sueldoBruto * 0.07;                                  // Descuento Salud (7%)
+        double impuesto = sueldoBruto > 1500000 ? sueldoBruto * 0.04 : 0;   // Impuesto adicional si sueldo > 1.5M CL
+
+        double descuentos = afp + salud + impuesto;
+        return sueldoBruto - descuentos;
+
+    }
 }

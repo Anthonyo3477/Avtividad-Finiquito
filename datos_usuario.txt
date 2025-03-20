@@ -1,0 +1,11 @@
+Nombre Usuario: Antonio Verdugo
+RUT Usuario: 222
+Domicilio Usuario: tu mamita
+Documento Usuario: 222.222.222
+Sueldo Usuario: 300.000
+Horas Semanales: 47
+Nombre Empresa: Tottus
+RUT Empresa: 333
+Domicilio Empresa: mi mami
+Representante Empresa: Don weas
+-----------------------------------------

@@ -4,6 +4,9 @@
  */
 package View;
 
+import java.io.FileWriter;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author antho
@@ -26,21 +29,295 @@ public class DatoUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelPrincipal = new javax.swing.JPanel();
+        panelTitulo = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        panelCuerpo = new javax.swing.JPanel();
+        lbl_NombreUsuario = new javax.swing.JLabel();
+        lbl_RutUsuario = new javax.swing.JLabel();
+        lbl_DomicilioUsuario = new javax.swing.JLabel();
+        txt_NombreUsuario = new javax.swing.JTextField();
+        lbl_DocumentoUsuario = new javax.swing.JLabel();
+        txt_RutUsuario = new javax.swing.JTextField();
+        txt_DocumentoUsuario = new javax.swing.JTextField();
+        txt_DomicilioUsuario = new javax.swing.JTextField();
+        lbl_SueldoUsuario = new javax.swing.JLabel();
+        txt_SueldoUsuario = new javax.swing.JTextField();
+        lbl_horasSemanales = new javax.swing.JLabel();
+        txt_HorasSemanales = new javax.swing.JTextField();
+        panelPie = new javax.swing.JPanel();
+        btn_GuardarDatos = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        lbl_NombreEmpresa = new javax.swing.JLabel();
+        lbl_RutEmpresa = new javax.swing.JLabel();
+        lbl_RepresentanteEmpresa = new javax.swing.JLabel();
+        lbl_DomicilioEmpresa = new javax.swing.JLabel();
+        txt_NombreEmpresa = new javax.swing.JTextField();
+        txt_RutEmpresa = new javax.swing.JTextField();
+        txt_DomicilioEmpresa = new javax.swing.JTextField();
+        txt_RepresentanteEmpresa = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        panelTitulo.setBorder(javax.swing.BorderFactory.createTitledBorder("Titulo"));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Ingrese Los Datos De la Empresa y Del Trabajador");
+
+        javax.swing.GroupLayout panelTituloLayout = new javax.swing.GroupLayout(panelTitulo);
+        panelTitulo.setLayout(panelTituloLayout);
+        panelTituloLayout.setHorizontalGroup(
+            panelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTituloLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelTituloLayout.setVerticalGroup(
+            panelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTituloLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panelCuerpo.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Trabajador"));
+
+        lbl_NombreUsuario.setText("Ingrese Su Nombre");
+
+        lbl_RutUsuario.setText("Ingrese Su RUT");
+
+        lbl_DomicilioUsuario.setText("Ingrese Su Domicilio");
+
+        lbl_DocumentoUsuario.setText("Ingrese Su Numero De Documento");
+
+        lbl_SueldoUsuario.setText("Ingrese Su Sueldo");
+
+        lbl_horasSemanales.setText("Ingrese Sus Horas Semanales");
+
+        javax.swing.GroupLayout panelCuerpoLayout = new javax.swing.GroupLayout(panelCuerpo);
+        panelCuerpo.setLayout(panelCuerpoLayout);
+        panelCuerpoLayout.setHorizontalGroup(
+            panelCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCuerpoLayout.createSequentialGroup()
+                .addGroup(panelCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCuerpoLayout.createSequentialGroup()
+                        .addComponent(lbl_DomicilioUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_DomicilioUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelCuerpoLayout.createSequentialGroup()
+                        .addComponent(lbl_DocumentoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_RutUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_DocumentoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_NombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelCuerpoLayout.createSequentialGroup()
+                        .addComponent(lbl_SueldoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_SueldoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelCuerpoLayout.createSequentialGroup()
+                        .addComponent(lbl_horasSemanales, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_HorasSemanales, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 25, Short.MAX_VALUE))
+            .addGroup(panelCuerpoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_NombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_RutUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelCuerpoLayout.setVerticalGroup(
+            panelCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCuerpoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_NombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_NombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_RutUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_RutUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_DocumentoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_DocumentoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_DomicilioUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_DomicilioUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_SueldoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_SueldoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_horasSemanales, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_HorasSemanales, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(159, Short.MAX_VALUE))
+        );
+
+        panelPie.setBorder(javax.swing.BorderFactory.createTitledBorder("Pie De Pagina "));
+
+        btn_GuardarDatos.setText("Guardar Datos");
+        btn_GuardarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_GuardarDatosActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelPieLayout = new javax.swing.GroupLayout(panelPie);
+        panelPie.setLayout(panelPieLayout);
+        panelPieLayout.setHorizontalGroup(
+            panelPieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPieLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_GuardarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelPieLayout.setVerticalGroup(
+            panelPieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPieLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(btn_GuardarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Empresa"));
+
+        lbl_NombreEmpresa.setText("Ingrese Nombre de la Empresa");
+
+        lbl_RutEmpresa.setText("Ingrese RUT de la Empresa");
+
+        lbl_RepresentanteEmpresa.setText("Ingrese El Representante de la Empresa");
+
+        lbl_DomicilioEmpresa.setText("Ingrese Domicilio de la Empresa");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lbl_NombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txt_NombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lbl_RutEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txt_RutEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lbl_DomicilioEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txt_DomicilioEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lbl_RepresentanteEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_RepresentanteEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_NombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_NombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_RutEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_RutEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_DomicilioEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_DomicilioEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_RepresentanteEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_RepresentanteEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
+        panelPrincipal.setLayout(panelPrincipalLayout);
+        panelPrincipalLayout.setHorizontalGroup(
+            panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelPie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelPrincipalLayout.createSequentialGroup()
+                .addComponent(panelCuerpo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelPrincipalLayout.setVerticalGroup(
+            panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPrincipalLayout.createSequentialGroup()
+                .addComponent(panelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelCuerpo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelPie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_GuardarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GuardarDatosActionPerformed
+        // TODO add your handling code here:
+        String nombreUsuario = txt_NombreUsuario.getText();
+        String rutUsuario = txt_RutUsuario.getText();
+        String domicilioUsuario = txt_DomicilioUsuario.getText();
+        String documentoUsuario = txt_DocumentoUsuario.getText();
+        String sueldoUsuario = txt_SueldoUsuario.getText();
+        String horasSemanales = txt_HorasSemanales.getText();
+
+        String nombreEmpresa = txt_NombreEmpresa.getText();
+        String rutEmpresa = txt_RutEmpresa.getText();
+        String domicilioEmpresa = txt_DomicilioEmpresa.getText();
+        String representanteEmpresa = txt_RepresentanteEmpresa.getText();
+
+        // Guardar datos en un archivo de texto (puedes usar base de datos en lugar de esto)
+        try (FileWriter writer = new FileWriter("datos_usuario.txt", true)) {
+            writer.write("Nombre Usuario: " + nombreUsuario + "\n");
+            writer.write("RUT Usuario: " + rutUsuario + "\n");
+            writer.write("Domicilio Usuario: " + domicilioUsuario + "\n");
+            writer.write("Documento Usuario: " + documentoUsuario + "\n");
+            writer.write("Sueldo Usuario: " + sueldoUsuario + "\n");
+            writer.write("Horas Semanales: " + horasSemanales + "\n");
+            writer.write("Nombre Empresa: " + nombreEmpresa + "\n");
+            writer.write("RUT Empresa: " + rutEmpresa + "\n");
+            writer.write("Domicilio Empresa: " + domicilioEmpresa + "\n");
+            writer.write("Representante Empresa: " + representanteEmpresa + "\n");
+            writer.write("-----------------------------------------\n");
+
+            JOptionPane.showMessageDialog(this, "Datos guardados correctamente.");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al guardar los datos.");
+            e.printStackTrace();
+        }
+        
+
+    }//GEN-LAST:event_btn_GuardarDatosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +355,32 @@ public class DatoUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_GuardarDatos;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbl_DocumentoUsuario;
+    private javax.swing.JLabel lbl_DomicilioEmpresa;
+    private javax.swing.JLabel lbl_DomicilioUsuario;
+    private javax.swing.JLabel lbl_NombreEmpresa;
+    private javax.swing.JLabel lbl_NombreUsuario;
+    private javax.swing.JLabel lbl_RepresentanteEmpresa;
+    private javax.swing.JLabel lbl_RutEmpresa;
+    private javax.swing.JLabel lbl_RutUsuario;
+    private javax.swing.JLabel lbl_SueldoUsuario;
+    private javax.swing.JLabel lbl_horasSemanales;
+    private javax.swing.JPanel panelCuerpo;
+    private javax.swing.JPanel panelPie;
+    private javax.swing.JPanel panelPrincipal;
+    private javax.swing.JPanel panelTitulo;
+    private javax.swing.JTextField txt_DocumentoUsuario;
+    private javax.swing.JTextField txt_DomicilioEmpresa;
+    private javax.swing.JTextField txt_DomicilioUsuario;
+    private javax.swing.JTextField txt_HorasSemanales;
+    private javax.swing.JTextField txt_NombreEmpresa;
+    private javax.swing.JTextField txt_NombreUsuario;
+    private javax.swing.JTextField txt_RepresentanteEmpresa;
+    private javax.swing.JTextField txt_RutEmpresa;
+    private javax.swing.JTextField txt_RutUsuario;
+    private javax.swing.JTextField txt_SueldoUsuario;
     // End of variables declaration//GEN-END:variables
 }
