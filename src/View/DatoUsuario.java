@@ -6,7 +6,12 @@ package View;
 
 import java.io.FileWriter;
 import javax.swing.JOptionPane;
-
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import Models.Usuario;
 /**
  *
  * @author antho
@@ -41,10 +46,12 @@ public class DatoUsuario extends javax.swing.JFrame {
         txt_RutUsuario = new javax.swing.JTextField();
         txt_DocumentoUsuario = new javax.swing.JTextField();
         txt_DomicilioUsuario = new javax.swing.JTextField();
-        lbl_SueldoUsuario = new javax.swing.JLabel();
         txt_SueldoUsuario = new javax.swing.JTextField();
         lbl_horasSemanales = new javax.swing.JLabel();
         txt_HorasSemanales = new javax.swing.JTextField();
+        lbl_cargo = new javax.swing.JLabel();
+        txt_cargo = new javax.swing.JTextField();
+        lbl_SueldoUsuario1 = new javax.swing.JLabel();
         panelPie = new javax.swing.JPanel();
         btn_GuardarDatos = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -91,14 +98,22 @@ public class DatoUsuario extends javax.swing.JFrame {
 
         lbl_DocumentoUsuario.setText("Ingrese Su Numero De Documento");
 
-        lbl_SueldoUsuario.setText("Ingrese Su Sueldo");
-
         lbl_horasSemanales.setText("Ingrese Sus Horas Semanales");
+
+        lbl_cargo.setText("Ingrese Cargo");
+
+        lbl_SueldoUsuario1.setText("Ingrese Su Sueldo");
 
         javax.swing.GroupLayout panelCuerpoLayout = new javax.swing.GroupLayout(panelCuerpo);
         panelCuerpo.setLayout(panelCuerpoLayout);
         panelCuerpoLayout.setHorizontalGroup(
             panelCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCuerpoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_NombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_RutUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelCuerpoLayout.createSequentialGroup()
                 .addGroup(panelCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCuerpoLayout.createSequentialGroup()
@@ -113,20 +128,18 @@ public class DatoUsuario extends javax.swing.JFrame {
                             .addComponent(txt_DocumentoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_NombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelCuerpoLayout.createSequentialGroup()
-                        .addComponent(lbl_SueldoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbl_SueldoUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_SueldoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelCuerpoLayout.createSequentialGroup()
-                        .addComponent(lbl_horasSemanales, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lbl_cargo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_horasSemanales, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_HorasSemanales, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 25, Short.MAX_VALUE))
-            .addGroup(panelCuerpoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_NombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_RutUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(panelCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_HorasSemanales, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_cargo, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 43, Short.MAX_VALUE))
         );
         panelCuerpoLayout.setVerticalGroup(
             panelCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,13 +162,17 @@ public class DatoUsuario extends javax.swing.JFrame {
                     .addComponent(txt_DomicilioUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_SueldoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_SueldoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_SueldoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_SueldoUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_horasSemanales, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_HorasSemanales, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(159, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelCuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_cargo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_cargo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         panelPie.setBorder(javax.swing.BorderFactory.createTitledBorder("Pie De Pagina "));
@@ -217,7 +234,7 @@ public class DatoUsuario extends javax.swing.JFrame {
                         .addComponent(lbl_RepresentanteEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_RepresentanteEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,7 +266,7 @@ public class DatoUsuario extends javax.swing.JFrame {
             .addComponent(panelPie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelPrincipalLayout.createSequentialGroup()
                 .addComponent(panelCuerpo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -283,40 +300,62 @@ public class DatoUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_GuardarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GuardarDatosActionPerformed
-        // TODO add your handling code here:
+       try {
+        // Crear el documento PDF
+        PDDocument documento = new PDDocument();
+        PDPage pagina = new PDPage(PDRectangle.A6);
+        documento.addPage(pagina);
+        
+        PDPageContentStream contenido = new PDPageContentStream(documento, pagina);
+        contenido.beginText();
+        contenido.setFont(PDType1Font.TIMES_BOLD, 12);
+        contenido.newLineAtOffset(20, pagina.getMediaBox().getHeight() - 30);
+
+        // Obtener datos de los campos de texto
         String nombreUsuario = txt_NombreUsuario.getText();
         String rutUsuario = txt_RutUsuario.getText();
         String domicilioUsuario = txt_DomicilioUsuario.getText();
         String documentoUsuario = txt_DocumentoUsuario.getText();
         String sueldoUsuario = txt_SueldoUsuario.getText();
         String horasSemanales = txt_HorasSemanales.getText();
+        String cargo = txt_cargo.getText();
 
         String nombreEmpresa = txt_NombreEmpresa.getText();
         String rutEmpresa = txt_RutEmpresa.getText();
         String domicilioEmpresa = txt_DomicilioEmpresa.getText();
         String representanteEmpresa = txt_RepresentanteEmpresa.getText();
 
-        // Guardar datos en un archivo de texto (puedes usar base de datos en lugar de esto)
-        try (FileWriter writer = new FileWriter("datos_usuario.txt", true)) {
-            writer.write("Nombre Usuario: " + nombreUsuario + "\n");
-            writer.write("RUT Usuario: " + rutUsuario + "\n");
-            writer.write("Domicilio Usuario: " + domicilioUsuario + "\n");
-            writer.write("Documento Usuario: " + documentoUsuario + "\n");
-            writer.write("Sueldo Usuario: " + sueldoUsuario + "\n");
-            writer.write("Horas Semanales: " + horasSemanales + "\n");
-            writer.write("Nombre Empresa: " + nombreEmpresa + "\n");
-            writer.write("RUT Empresa: " + rutEmpresa + "\n");
-            writer.write("Domicilio Empresa: " + domicilioEmpresa + "\n");
-            writer.write("Representante Empresa: " + representanteEmpresa + "\n");
-            writer.write("-----------------------------------------\n");
-
-            JOptionPane.showMessageDialog(this, "Datos guardados correctamente.");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error al guardar los datos.");
-            e.printStackTrace();
+        // Escribir los datos en el PDF
+        String[] datos = {
+            "Nombre Usuario: " + nombreUsuario,
+            "RUT Usuario: " + rutUsuario,
+            "Domicilio Usuario: " + domicilioUsuario,
+            "Documento Usuario: " + documentoUsuario,
+            "Sueldo Usuario: " + sueldoUsuario,
+            "Horas Semanales: " + horasSemanales,
+            "Nombre Empresa: " + nombreEmpresa,
+            "RUT Empresa: " + rutEmpresa,
+            "Domicilio Empresa: " + domicilioEmpresa,
+            "Representante Empresa: " + representanteEmpresa
+        };
+        for (String linea : datos) {
+            contenido.showText(linea);
+            contenido.newLineAtOffset(0, -15); // Espaciado entre líneas
         }
-        
 
+        contenido.endText();
+        contenido.close();
+
+        // Guardar el archivo PDF en la carpeta del programa
+        documento.save("C:\\pdf\\datos_usuario.pdf");
+        documento.close();
+
+        JOptionPane.showMessageDialog(this, "PDF generado correctamente.");
+    } 
+    catch (Exception x) {
+        JOptionPane.showMessageDialog(this, "Error al generar el PDF.");
+        x.printStackTrace();
+    }
     }//GEN-LAST:event_btn_GuardarDatosActionPerformed
 
     /**
@@ -366,7 +405,8 @@ public class DatoUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_RepresentanteEmpresa;
     private javax.swing.JLabel lbl_RutEmpresa;
     private javax.swing.JLabel lbl_RutUsuario;
-    private javax.swing.JLabel lbl_SueldoUsuario;
+    private javax.swing.JLabel lbl_SueldoUsuario1;
+    private javax.swing.JLabel lbl_cargo;
     private javax.swing.JLabel lbl_horasSemanales;
     private javax.swing.JPanel panelCuerpo;
     private javax.swing.JPanel panelPie;
@@ -382,5 +422,6 @@ public class DatoUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField txt_RutEmpresa;
     private javax.swing.JTextField txt_RutUsuario;
     private javax.swing.JTextField txt_SueldoUsuario;
+    private javax.swing.JTextField txt_cargo;
     // End of variables declaration//GEN-END:variables
 }
